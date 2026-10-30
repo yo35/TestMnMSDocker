@@ -3,15 +3,21 @@
 
 FROM python:3.14-slim
 
-ENV PYTHONDONTWRITEBYTECODE=1
-ENV PYTHONUNBUFFERED=1
 ENV PATH="/app/venv/bin:$PATH"
 
 WORKDIR /app
 
 RUN python -m venv /app/venv
-COPY fake_app.py .
+
+# FIXME To be installed from PyPI instead
+ADD https://github.com/becarie/MnMS.git#generic_execution_script /app
+RUN pip install .
 
 WORKDIR /data
 
-ENTRYPOINT ["python", "/app/fake_app.py"]
+ENTRYPOINT ["python", "/app/script/running/run.py"]
+
+# To be launched with:
+#
+# docker run -it --rm --volume "$PWD:/data" --user "$(id -u):$(id -g)" <image-name> <args...>
+#
