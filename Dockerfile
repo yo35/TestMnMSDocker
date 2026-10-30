@@ -24,5 +24,5 @@ ENTRYPOINT ["python", "/app/script/running/run.py"]
 
 # To be launched with:
 #
-# docker run -it --rm --volume "$PWD:/data" --user "$(id -u):$(id -g)" <image-name> <args...>
+# docker run -it --rm --volume "$PWD:/data" --user "$(id -u):$(id -g)" -e HOME=/tmp <image-name> <args...>
 #
