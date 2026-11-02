@@ -24,5 +24,4 @@ __pycache__/
 .ipynb_checkpoints
 
 # Output files
-/out_file.txt
 /OUTPUTS
