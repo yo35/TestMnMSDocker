@@ -18,9 +18,11 @@ WORKDIR /app
 ADD https://github.com/becarie/MnMS.git#generic_execution_script /app
 RUN pip install .
 
+COPY docker-entrypoint.sh docker-entrypoint-usage.txt /app
+
 WORKDIR /data
 
-ENTRYPOINT ["python", "/app/script/running/run.py"]
+ENTRYPOINT ["/app/docker-entrypoint.sh"]
 
 # To be launched with:
 #
