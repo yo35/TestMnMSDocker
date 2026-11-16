@@ -16,7 +16,7 @@ ENV \
 
 # App installation
 WORKDIR /app
-# FIXME To be installed from PyPI instead
+# TODO To be installed from PyPI instead + make the MnMS version explicit
 ADD https://github.com/EMob-Lab/MnMS.git /app
 RUN pip install .
 COPY entrypoint.sh entrypoint-usage.txt /app
@@ -33,3 +33,6 @@ ENTRYPOINT ["/app/entrypoint.sh"]
 #
 # docker run -it --rm --volume "$PWD:/data" --user "$(id -u):$(id -g)" -e HOME=/tmp <image-name> <args...>
 #
+# Use the launchers scripts to avoid typing this command line manually:
+# - for MacOS/Linux: https://raw.githubusercontent.com/EMob-Lab/MnMS/refs/heads/main/docker/launchers/mnms-docker
+# - for Windows: TODO add launcher
