@@ -4,4 +4,4 @@ Usage:
 
 All files used by the simulation (the settings file or script, and any file they
 reference) must be located in the current directory or one of its subdirectories,
-and referenced by relative paths. TODO to be removed...
+and referenced by relative paths.
