@@ -4,7 +4,7 @@ set -e
 
 # If no argument (or "--help" or similar) is provided, print usage information and exit.
 if [ $# -eq 0 ] || [ "$1" = "-h" ] || [ "$1" = "--help" ]; then
-    cat /app/docker-entrypoint-usage.txt
+    cat /app/entrypoint-usage.txt
     exit 0
 fi
 
@@ -25,7 +25,7 @@ case "$1" in
     *)
         echo "Error: unsupported argument '$1' (expected a .json or .py file)." >&2
         echo "" >&2
-        cat /app/docker-entrypoint-usage.txt >&2
+        cat /app/entrypoint-usage.txt >&2
         exit 2
         ;;
 

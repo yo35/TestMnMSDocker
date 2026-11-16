@@ -14,17 +14,16 @@ ENV \
     PIP_DISABLE_PIP_VERSION_CHECK=1 \
     PIP_ROOT_USER_ACTION=ignore
 
+# App installation
 WORKDIR /app
-
 # FIXME To be installed from PyPI instead
 ADD https://github.com/EMob-Lab/MnMS.git /app
 RUN pip install .
+COPY entrypoint.sh entrypoint-usage.txt /app
 
-COPY docker-entrypoint.sh docker-entrypoint-usage.txt /app
-
+# Runtime configuration
 WORKDIR /data
-
-ENTRYPOINT ["/app/docker-entrypoint.sh"]
+ENTRYPOINT ["/app/entrypoint.sh"]
 
 # To be launched with:
 #
