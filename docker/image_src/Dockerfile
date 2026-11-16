@@ -2,6 +2,11 @@
 
 FROM python:3.14-slim
 
+LABEL \
+    org.opencontainers.image.title="MnMS" \
+    org.opencontainers.image.description="Agent-based Multimodal Urban Moblity Simulator resulting from the ERC MAGnUM project" \
+    org.opencontainers.image.licenses="LGPL-3.0-only"
+
 # Environment variables:
 # - PIP_NO_CACHE_DIR: don't keep pip's cache in the image
 # - PIP_DISABLE_PIP_VERSION_CHECK: silence the warning issued if a newer pip is available online
