@@ -9,7 +9,7 @@ jobs:
 
     env:
       REGISTRY: ghcr.io
-      IMAGE_NAME: yo35/testmnms
+      IMAGE_NAME: yo35/testmnms # TODO change image name
 
     permissions:
       contents: read

@@ -24,7 +24,8 @@ if [[ $docker_security_options != *rootless* ]]; then
     user_mapping_args=(--user "$(id -u):$(id -g)" -e HOME=/tmp)
 fi
 
-IMAGE_NAME=testmnms
+# TODO change image name
+IMAGE_NAME=ghcr.io/yo35/testmnms:latest
 
 # Run Docker, with parameters:
 # - `-it`: attach a terminal and keep stdin open, so that the app behaves as when run from a terminal.
