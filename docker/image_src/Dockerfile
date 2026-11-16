@@ -2,10 +2,8 @@
 
 FROM python:3.14-slim
 
-LABEL \
-    org.opencontainers.image.title="MnMS" \
-    org.opencontainers.image.description="Agent-based Multimodal Urban Moblity Simulator resulting from the ERC MAGnUM project" \
-    org.opencontainers.image.licenses="LGPL-3.0-only"
+# Image metadata (title, description...) is defined in labels.txt,
+# and applied by the publishing workflow.
 
 # Environment variables:
 # - PIP_NO_CACHE_DIR: don't keep pip's cache in the image
