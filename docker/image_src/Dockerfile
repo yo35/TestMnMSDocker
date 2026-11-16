@@ -27,5 +27,9 @@ ENTRYPOINT ["/app/entrypoint.sh"]
 
 # To be launched with:
 #
+# docker run -it --rm --volume "$PWD:/data" <image-name> <args...>
+#
+# ... or if the docker engine runs as root:
+#
 # docker run -it --rm --volume "$PWD:/data" --user "$(id -u):$(id -g)" -e HOME=/tmp <image-name> <args...>
 #
