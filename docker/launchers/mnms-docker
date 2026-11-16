@@ -27,6 +27,12 @@ fi
 # TODO change image name
 IMAGE_NAME=ghcr.io/yo35/testmnms:latest
 
+# Fetch the latest version of the image if not up to date.
+# If the registry cannot be reached (e.g. offline), fall back to the local copy of the image, if any.
+if ! docker pull "$IMAGE_NAME" >&2; then
+    echo "Warning: cannot check for updates of $IMAGE_NAME, using the local copy of the image (if any)." >&2
+fi
+
 # Run Docker, with parameters:
 # - `-it`: attach a terminal and keep stdin open, so that the app behaves as when run from a terminal.
 # - `--rm`: delete the container when it exits (otherwise, stopped containers accumulate).
