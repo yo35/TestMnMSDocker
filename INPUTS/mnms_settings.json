@@ -1,6 +1,6 @@
 {
     "GRAPH": {
-        "network_file": "network-Lyon63V.json",
+        "network_file": "subdir/network-Lyon63V.json",
         "OD_LAYER": {
             "file": "odlayer-Lyon63V.json",
             "connection_distance": 250
