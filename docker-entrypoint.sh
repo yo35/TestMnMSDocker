@@ -13,7 +13,7 @@ case "$1" in
 
     # For a JSON file, run the MnMS CLI launcher.
     *.[jJ][sS][oO][nN])
-        exec python /app/script/running/run.py "$@"
+        exec mnms "$@"
         ;;
 
     # For a Python file (more advanced usage), run it directly.

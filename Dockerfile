@@ -1,6 +1,5 @@
 # syntax=docker/dockerfile:1
 
-
 FROM python:3.14-slim
 
 # Environment variables:
@@ -15,7 +14,7 @@ ENV \
 WORKDIR /app
 
 # FIXME To be installed from PyPI instead
-ADD https://github.com/becarie/MnMS.git#generic_execution_script /app
+ADD https://github.com/EMob-Lab/MnMS.git /app
 RUN pip install .
 
 COPY docker-entrypoint.sh docker-entrypoint-usage.txt /app
