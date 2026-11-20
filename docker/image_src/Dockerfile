@@ -5,6 +5,10 @@ FROM python:3.14-slim
 # Image metadata (title, description...) is defined in labels.txt,
 # and applied by the publishing workflow.
 
+# MnMS version to install (e.g. `--build-arg MNMS_VERSION=1.2.3`).
+# If omitted, the latest version available on PyPI is installed.
+ARG MNMS_VERSION
+
 # Environment variables:
 # - PIP_NO_CACHE_DIR: don't keep pip's cache in the image
 # - PIP_DISABLE_PIP_VERSION_CHECK: silence the warning issued if a newer pip is available online
@@ -16,8 +20,7 @@ ENV \
 
 # App installation
 WORKDIR /app
-# TODO Make the MnMS version explicit
-RUN pip install mnms
+RUN pip install "mnms${MNMS_VERSION:+==${MNMS_VERSION}}"
 COPY entrypoint.sh entrypoint-usage.txt /app
 
 # Runtime configuration

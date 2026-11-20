@@ -1,7 +1,9 @@
 name: Publish container
 
 on:
-  workflow_dispatch:
+  push:
+    tags:
+      - 'v*.*.*' # Trigger on version tags like v1.2.3
 
 jobs:
   publish:
@@ -44,7 +46,9 @@ jobs:
           DOCKER_METADATA_ANNOTATIONS_LEVELS: manifest,index # Needed for metadata to be properly set on multi-platform image.
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          # The image version is the MnMS version, taken from the git tag without its 'v' prefix.
           tags: |
+            type=semver,pattern={{version}}
             type=raw,value=latest
             type=sha
           labels: ${{ steps.labels.outputs.labels }}
@@ -59,6 +63,8 @@ jobs:
             linux/arm64
           push: true
           provenance: false # Avoid the extra 'unknown/unknown' entry in the image index.
+          build-args: |
+            MNMS_VERSION=${{ steps.metadata.outputs.version }}
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
           annotations: ${{ steps.metadata.outputs.annotations }}
