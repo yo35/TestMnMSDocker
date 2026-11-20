@@ -1,1 +1,1 @@
-docker/launchers/mnms-docker.cmd
+../MnMS/docker/launchers/mnms-docker.cmd
