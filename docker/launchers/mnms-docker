@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-
 set -eo pipefail
+
+# TODO change image name
+IMAGE_NAME=ghcr.io/yo35/testmnms:latest
 
 # Check whether Docker is available or not.
 if ! command -v docker >/dev/null 2>&1; then
@@ -23,9 +25,6 @@ user_mapping_args=()
 if [[ $docker_security_options != *rootless* ]]; then
     user_mapping_args=(--user "$(id -u):$(id -g)" -e HOME=/tmp)
 fi
-
-# TODO change image name
-IMAGE_NAME=ghcr.io/yo35/testmnms:latest
 
 # Fetch the latest version of the image if not up to date.
 # If the registry cannot be reached (e.g. offline), fall back to the local copy of the image, if any.

@@ -37,4 +37,4 @@ ENTRYPOINT ["/app/entrypoint.sh"]
 #
 # Use the launchers scripts to avoid typing this command line manually:
 # - for MacOS/Linux: https://raw.githubusercontent.com/EMob-Lab/MnMS/refs/heads/main/docker/launchers/mnms-docker
-# - for Windows: TODO add launcher
+# - for Windows: https://raw.githubusercontent.com/EMob-Lab/MnMS/refs/heads/main/docker/launchers/mnms-docker.cmd

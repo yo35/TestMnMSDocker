@@ -1,0 +1,1 @@
+docker/launchers/mnms-docker.cmd
