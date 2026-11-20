@@ -16,9 +16,8 @@ ENV \
 
 # App installation
 WORKDIR /app
-# TODO To be installed from PyPI instead + make the MnMS version explicit
-ADD https://github.com/EMob-Lab/MnMS.git /app
-RUN pip install .
+# TODO Make the MnMS version explicit
+RUN pip install mnms
 COPY entrypoint.sh entrypoint-usage.txt /app
 
 # Runtime configuration
